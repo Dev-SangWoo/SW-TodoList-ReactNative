@@ -11,7 +11,9 @@
 
 ## 스크린샷
 
-(앱의 스크린샷이 여기에 들어갈 수 있습니다)
+![Image](https://github.com/user-attachments/assets/62b18727-5e99-4be3-bcaf-81623f1965a0)
+
+![Image](https://github.com/user-attachments/assets/b1374f7d-e853-4e63-bdde-6422c69f0569)
 
 ## 기술 스택
 
