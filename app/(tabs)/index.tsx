@@ -5,6 +5,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import TodoItem, { TodoItemType } from '../../components/TodoItem';
 import TodoInput from '../../components/TodoInput';
 
+// 더미 데이터 배열 추가
+const dummyTodos: TodoItemType[] = [
+  {
+    id: '1',
+    text: '리액트 네이티브 공부하기',
+    completed: false,
+  },
+  {
+    id: '2',
+    text: '장보기 (우유, 빵, 계란)',
+    completed: true,
+  },
+  {
+    id: '3',
+    text: '주간 회의 준비하기',
+    completed: false,
+  },
+];
+
 export default function TabOneScreen() {
   const [todos, setTodos] = useState<TodoItemType[]>([]);
 
@@ -24,9 +43,14 @@ export default function TabOneScreen() {
       const todosString = await AsyncStorage.getItem('@todos');
       if (todosString !== null) {
         setTodos(JSON.parse(todosString));
+      } else {
+        // 저장된 데이터가 없을 경우 더미 데이터 사용
+        setTodos(dummyTodos);
       }
     } catch (e) {
       console.error('할 일 목록을 불러오는데 실패했습니다:', e);
+      // 오류 발생 시에도 더미 데이터 사용
+      setTodos(dummyTodos);
     }
   };
 
